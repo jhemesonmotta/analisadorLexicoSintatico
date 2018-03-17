@@ -14,4 +14,5 @@ O analisador referente a este trabalho foi construído sobre uma gramática prev
 ```E        ::= E OPERADOR E | E | '(' E ')' | INCOGNITA | NUMERO
 OPERADOR ::= '+' | '-' | '*' | '/'
 INCOGNITA ::= 'x' | 'y'
-NUMERO   ::= [0-9]+```
+NUMERO   ::= [0-9]+
+```

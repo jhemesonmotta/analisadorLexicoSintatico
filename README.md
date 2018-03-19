@@ -11,7 +11,8 @@ Instruções para Utilização
 
 O analisador referente a este trabalho foi construído sobre uma gramática previamente definida. A mesma pode ser conferida a seguir:
 
-```E        ::= E OPERADOR E | E | '(' E ')' | INCOGNITA | NUMERO
+```
+E        ::= E OPERADOR E | E | '(' E ')' | INCOGNITA | NUMERO
 OPERADOR ::= '+' | '-' | '*' | '/'
 INCOGNITA ::= 'x' | 'y'
 NUMERO   ::= [0-9]+

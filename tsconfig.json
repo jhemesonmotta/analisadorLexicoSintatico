@@ -1,7 +1,14 @@
 {
-    "compileOnSave": true,
     "compilerOptions": {
+        // "outFile": "../dist/tsc.js",
         "outDir": "dist",
-        "noEmitOnError": false
-    }
+        "watch": true,
+        "removeComments": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }

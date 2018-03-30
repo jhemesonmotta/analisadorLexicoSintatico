@@ -29,17 +29,6 @@ class Node{
             console.log(`${this.info.valor}`)
     }
 
-    insere(object, pos?){
-        if(!pos || pos === POS_CENTRO){
-            this.centro.info = new InfoNode(object.valor, object.tipo)
-        }else{
-            if(pos === POS_DIREITA){
-                this.direito.info = new InfoNode(object.valor, object.tipo)
-            }else if(pos === POS_ESQUERDA){
-                this.esquerdo.info = new InfoNode(object.valor, object.tipo)
-            }
-        }
-    }
 }
 
 export { Tree, Node}

@@ -1,7 +1,9 @@
 import { DESC_TIPO_ABRE_PARENTESES, DESC_TIPO_FECHA_PARENTESES, TIPO_NUMERO, TIPO_INCOGNITA } from "./constants";
-import { InfoNode, Numero } from "./classes/infoNode";
+import index = require("./index")
+import { InfoNode, Numero, Operador } from "./classes/infoNode";
 import { Tree, Node } from "./classes/tree";
 import { AbreParenteses, FechaParenteses, E, Incognita, Terminal } from "./classes/infoNode";
+import { eh_operador } from "./lexico";
 
 
 export function fillTree(entrada: any[]){
@@ -39,8 +41,19 @@ function getNodes(entrada: any[], node: Node){
         node.centro = getNodes(nova_entrada, new Node(new E()))
         return node
     }
-    else if(matchOperacao(entrada)){
-        console.log("operacao");
+    else if(matchOperacao(entrada) > 0){
+        let index = matchOperacao(entrada)
+                
+        let esqOperador = entrada.slice(0, index)
+        let dirOperador = entrada.slice(index+1, entrada.length)
+        let nodeOperador = new Node(new Operador())
+        nodeOperador.centro = new Node(new Terminal('+'))
+
+        node.centro = nodeOperador
+        node.esquerdo = getNodes(esqOperador, new Node(new E()))
+        node.direito = getNodes(dirOperador, new Node(new E()))
+        
+        return node
     }
 }
 
@@ -63,15 +76,25 @@ function matchIncognita(entrada: any[]){
     }
     return false;
 }
-function matchOperador(entrada: any[]){
-    // Regra OPERADOR
-    return false;
-}
 function matchParentes(entrada: any[]){
     // Regra '(' E ')'
     return entrada[0].identificador === DESC_TIPO_ABRE_PARENTESES && entrada[entrada.length - 1].identificador === DESC_TIPO_FECHA_PARENTESES;
 }
+function getStrEntrada(entrada: any[], separator = ""){
+    return entrada.map(token => token.token).join(separator)
+}
+
 function matchOperacao(entrada: any[]){
     // Regra  E OPERADOR E
-    return false;
+    let entradaStr = getStrEntrada(entrada);
+    let index = 0
+    for(let char of entradaStr){
+        if(eh_operador(char)){
+            // console.log(`Operador= ${char}; pos=${index}`);
+            return index;           
+        }
+        index++;
+    }
+    console.log(entradaStr);
+    return 0;
 }

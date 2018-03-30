@@ -49,4 +49,4 @@ function eh_numero(token) {
     return token;
 }
 
-export { analisadorLexico }
+export { analisadorLexico, eh_operador }

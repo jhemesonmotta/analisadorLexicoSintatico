@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        // "outFile": "../dist/tsc.js",
+        "outDir": "dist",
+        "watch": true,
+        "removeComments": true
+    },
+    "include": [
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}

@@ -2,13 +2,17 @@
   "name": "analisadorlexicosintatico",
   "version": "1.0.1",
   "description": "Implementação de um analisador léxico e sintático para a gramática de expressões aritméticas.\r As regras da gramática devem ser definidas diretamente no código-fonte do programa.\r O programa deve realizar as análises léxica e sintática.\r A saída do programa deve ser uma indicação de que a sentença de entrada está correta ou incorreta (léxica ou sintaticamente).",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node_modules/.bin/webpack --output-filename analisador-lex-sin.umd.js",
     "build:w": "npm run build -- --watch",
     "build:min": "node_modules/.bin/webpack --output-filename analisador-lex-sin.umd.min.js -p"
   },
+  "files": [
+    "lib",
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jhemesonmotta/analisadorLexicoSintatico.git"

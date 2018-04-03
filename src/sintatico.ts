@@ -79,9 +79,23 @@ function matchIncognita(entrada: any[]) {
   }
   return false;
 }
-function matchParentes(entrada: any[]) {
+function matchParentes(entrada: any[]): boolean {
   // Regra '(' E ')'
-  return entrada[0].identificador === DESC_TIPO_ABRE_PARENTESES && entrada[entrada.length - 1].identificador === DESC_TIPO_FECHA_PARENTESES;
+  if (entrada[0].identificador === DESC_TIPO_ABRE_PARENTESES && entrada[entrada.length - 1].identificador === DESC_TIPO_FECHA_PARENTESES) {
+    const entradaStr = getStrEntrada(entrada.slice(1, entrada.length - 1))
+    let parenteseAberto: boolean = false;
+
+    for (const char of entradaStr) {
+      if (eh_abre_parentese(char)) {
+        parenteseAberto = true
+      }
+      if (eh_fecha_parentese(char) && parenteseAberto) {
+        parenteseAberto = false
+      }
+    }
+    return !parenteseAberto;
+  }
+  return false;
 }
 function getStrEntrada(entrada: any[], separator = "") {
   return entrada.map(token => token.token).join(separator)

@@ -95,10 +95,10 @@ function matchOperacao(entrada: any[]) {
 
   for (let char of entradaStr) {
     if (eh_abre_parentese(char)) {
-      parentesesAbertos++
+      parentesesAbertos += 1
     }
     else if (eh_fecha_parentese(char)) {
-      parentesesAbertos--
+      parentesesAbertos -= 1
     }
     else if (eh_operador(char) && parentesesAbertos === 0) {
       return index;

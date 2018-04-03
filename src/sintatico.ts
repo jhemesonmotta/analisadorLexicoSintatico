@@ -3,7 +3,7 @@ import index = require("./index")
 import { InfoNode, Numero, Operador } from "./classes/infoNode";
 import { Tree, Node } from "./classes/tree";
 import { AbreParenteses, FechaParenteses, E, Incognita, Terminal } from "./classes/infoNode";
-import { eh_operador } from "./lexico";
+import { eh_operador, eh_abre_parentese, eh_fecha_parentese } from "./lexico";
 
 
 export function fillTree(entrada: any[]) {
@@ -91,9 +91,16 @@ function matchOperacao(entrada: any[]) {
   // Regra  E OPERADOR E
   let entradaStr = getStrEntrada(entrada);
   let index = 0
+  let parentesesAbertos: number = 0
+
   for (let char of entradaStr) {
-    if (eh_operador(char)) {
-      // console.log(`Operador= ${char}; pos=${index}`);
+    if (eh_abre_parentese(char)) {
+      parentesesAbertos++
+    }
+    else if (eh_fecha_parentese(char)) {
+      parentesesAbertos--
+    }
+    else if (eh_operador(char) && parentesesAbertos === 0) {
       return index;
     }
     index++;

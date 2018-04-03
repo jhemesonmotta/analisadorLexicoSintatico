@@ -1,83 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="../lib/analisador-lex-sin.umd.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+  <script src="../lib/analisador-lex-sin.umd.js"></script>
 
-    <title>Exemplo 1</title>
+  <title>Exemplo 1</title>
 </head>
-<body>
-    <div class="jumbotron">
-        <h1 class="text-center">Analisador Léxico e Sintático</h1>
-        <div class="alert alert-danger erro" role="alert">
-            <div id="msgErro" class="lead text-center">
-            </div>
-        </div>
-        <div class="alert alert-info sucesso" role="alert">
-            <div id="msgSucesso" class="lead text-center">
-            </div>
-        </div>
 
-        <div class="entradas text-center">
-            <input type="text" class="text-center" id="entrada">
-            <button class="text-center" id="ir">Ir</button>
-        </div>
+<body>
+  <div class="jumbotron">
+    <h1 class="text-center">Analisador Léxico e Sintático</h1>
+    <div class="alert alert-danger erro" role="alert">
+      <div id="msgErro" class="lead text-center">
+      </div>
+    </div>
+    <div class="alert alert-info sucesso" role="alert">
+      <div id="msgSucesso" class="lead text-center">
+      </div>
     </div>
 
+    <div class="" id="gramatica">
+      <p class="text-center lead">
+        O analisador é baseado na seguinte gramática:
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <pre>
+        E        ::= E OPERADOR E | E | '(' E ')' | INCOGNITA | NUMERO
+        OPERADOR ::= '+' | '-' | '*' | '/'
+        INCOGNITA ::= 'x' | 'y'
+        NUMERO   ::= [0-9]+
+        </pre>
+      </p>
+    </div>
 
-    <script>
-        $(document).ready(function() {
-            $(".erro").hide();
-            $(".sucesso").hide();
+    <div class="entradas text-center">
+      <input type="text" class="text-center" id="entrada">
+      <button class="text-center" id="ir">Ir</button>
 
-            $("#ir").on('click', function(){
-                var entrada = $("#entrada").val();
-                if(entrada){
-                    console.log(analisador.default(entrada));
-                    var result = analisador.default(entrada);
-
-                    if(result.status === "ok"){
-                        printSucesso(result.msg)
-                    }else{
-                        printErro(result.msg)
-                    }
-                }else{
-                    printErro("Entrada não pode ser vazia!")
-                }
-            });
+      <p>
+        <strong>Obs:</strong>
+        Caso haja mais de 1 token, eles devem estar separados por espaço simples. (Ex: "( x + y )").
+      </p>
+    </div>
+  </div>
 
 
-            function printErro(erro){
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-                
-                $(".erro").show();
-                $("#msgErro").fadeTo(2000, 500).slideUp(500, function(){
-                    $("#msgErro").html(erro);
-                    $("#msgErro").slideUp(500);
-                    $(".erro").hide();
-                });
-            }            
-            function printSucesso(sucesso){
-
-                
-                $(".sucesso").show();
-                $("#msgSucesso").fadeTo(2000, 500).slideUp(500, function(){
-                    $("#msgSucesso").html(sucesso);
-                    $("#msgSucesso").slideUp(500);
-                    $(".sucesso").hide();
-                });
-            }            
-        });
-
-        
-    </script>
+  <script src="index.js"></script>
 </body>
+
 </html>

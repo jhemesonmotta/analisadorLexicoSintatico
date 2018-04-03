@@ -1,0 +1,9 @@
+#gramatica{
+  width: 600px;
+  margin: 0 auto;
+  border: 1px #000 dashed;
+}
+
+.entradas{
+  margin-top: 15px;
+}

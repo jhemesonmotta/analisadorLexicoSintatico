@@ -1,6 +1,6 @@
 {
   "name": "analisadorlexicosintatico",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Implementação de um analisador léxico e sintático para a gramática de expressões aritméticas.\r As regras da gramática devem ser definidas diretamente no código-fonte do programa.\r O programa deve realizar as análises léxica e sintática.\r A saída do programa deve ser uma indicação de que a sentença de entrada está correta ou incorreta (léxica ou sintaticamente).",
   "main": "dist/index.js",
   "scripts": {
@@ -23,10 +23,8 @@
     "url": "https://github.com/jhemesonmotta/analisadorLexicoSintatico/issues"
   },
   "homepage": "https://github.com/jhemesonmotta/analisadorLexicoSintatico#readme",
-  "dependencies": {
-    "webpack": "^4.4.1"
-  },
   "devDependencies": {
+    "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13"
   }
 }

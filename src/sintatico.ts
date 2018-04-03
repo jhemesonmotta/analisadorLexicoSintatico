@@ -42,7 +42,7 @@ function getNodes(entrada: any[], node: Node){
         node.centro = getNodes(nova_entrada, new Node(new E()))
         return node
     }
-    else if(matchOperacao(entrada) > -1){
+    else if(matchOperacao(entrada) > 0){
         let index = matchOperacao(entrada)
                 
         let esqOperador = entrada.slice(0, index)
@@ -97,5 +97,5 @@ function matchOperacao(entrada: any[]){
         index++;
     }
     console.log(entradaStr);
-    return -1;
+    return 0;
 }

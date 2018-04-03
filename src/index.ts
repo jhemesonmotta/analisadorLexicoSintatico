@@ -35,7 +35,7 @@ function analisador(entrada: string) {
 function lexicamente(tb_tokens: any[]) {
   for (const infoToken of tb_tokens) {
     if (infoToken.identificador === "-") {
-      return { msg: `Token '${infoToken.token}' não existe na gramática!`, status: 'erro' }
+      return { msg: `Erro léxico: Token '${infoToken.token}' não existe na gramática!`, status: 'erro' }
     }
   }
   return { msg: `Sentença lexicamente correta!`, status: 'ok' }

@@ -1,4 +1,5 @@
-# Analisador Lexico e Sintatico
+# Analisador Léxico e Sintático
+**Veja [funcionando aqui!](https://alexandrekavalerski.github.io/analisadorLexicoSintatico-exemplo/)**
 
 Implementação de um analisador léxico e sintático para a gramática de expressões aritméticas.
 A lib realiza as análises léxica e sintática e provê uma indicação de que a sentença de entrada está correta ou incorreta (léxica ou sintaticamente).
@@ -78,6 +79,10 @@ console.log(result)
 | ![Ian Maiwald]()|
 |:---------------------:|
 |  [Ian Maiwald](https://github.com/IanMaiwald)
+
+| ![Kennedy Santos](https://avatars3.githubusercontent.com/u/25750884?s=150&v=3)|
+|:---------------------:|
+|  [Kennedy Santos](https://github.com/Qnedy)
 
 Veja também a lista de [colaboradores](https://github.com/jhemesonmotta/analisadorLexicoSintatico/contributors) who participated in this project.
 

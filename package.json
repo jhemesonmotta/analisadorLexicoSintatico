@@ -4,10 +4,11 @@
   "description": "Implementação de um analisador léxico e sintático para a gramática de expressões aritméticas.\r As regras da gramática devem ser definidas diretamente no código-fonte do programa.\r O programa deve realizar as análises léxica e sintática.\r A saída do programa deve ser uma indicação de que a sentença de entrada está correta ou incorreta (léxica ou sintaticamente).",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node_modules/.bin/webpack --output-filename analisador-lex-sin.umd.js",
     "build:w": "npm run build -- --watch",
-    "build:min": "node_modules/.bin/webpack --output-filename analisador-lex-sin.umd.min.js -p"
+    "build:min": "node_modules/.bin/webpack --output-filename analisador-lex-sin.umd.min.js -p",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js",
+    "test:tdd": "npm run test -- --watch"
   },
   "files": [
     "lib",
@@ -24,6 +25,8 @@
   },
   "homepage": "https://github.com/jhemesonmotta/analisadorLexicoSintatico#readme",
   "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.5",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13"
   }

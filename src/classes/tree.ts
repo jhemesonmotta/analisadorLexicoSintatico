@@ -15,18 +15,21 @@ class Node{
         this.info = new InfoNode(object.valor, object.tipo)
     }
 
-    visitInOrdem(){
+    visitInOrdem(result = ''){
         if(this.esquerdo !== null){
-            this.esquerdo.visitInOrdem()
+            result = this.esquerdo.visitInOrdem(result)
         }
         if(this.centro !== null){
-            this.centro.visitInOrdem()
+            result = this.centro.visitInOrdem(result)
         }
         if(this.direito !== null){
-            this.direito.visitInOrdem()
+            result = this.direito.visitInOrdem(result)
         }
-        if(this.info.tipo === TIPO_TERMINAL)
-            console.log(`${this.info.valor}`)
+        if(this.info.tipo === TIPO_TERMINAL){
+            result = result + this.info.valor + " ";
+        }
+        return result
+        
     }
 
 }

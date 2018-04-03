@@ -104,7 +104,7 @@ function getStrEntrada(entrada: any[], separator = "") {
 function matchOperacao(entrada: any[]) {
   // Regra  E OPERADOR E
   let entradaStr = getStrEntrada(entrada);
-  let index = 0
+  let index: number = 0
   let parentesesAbertos: number = 0
 
   for (let char of entradaStr) {
@@ -117,7 +117,7 @@ function matchOperacao(entrada: any[]) {
     else if (eh_operador(char) && parentesesAbertos === 0) {
       return index;
     }
-    index++;
+    index += 1;
   }
   console.log(entradaStr);
   return 0;

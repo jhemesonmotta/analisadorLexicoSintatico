@@ -18,7 +18,7 @@ Esta biblioteca não possui dependências.
 ## Instalação
 
 ```sh
-$ npm install analisador-lex-sin --save
+$ npm install analisadorlexicosintatico --save
 ```
 
 ## Como Usar

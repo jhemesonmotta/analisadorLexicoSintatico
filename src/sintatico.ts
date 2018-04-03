@@ -10,7 +10,8 @@ export function fillTree(entrada: any[]){
     var tree: Tree = new Tree();    
     
     tree.raiz = getNodes(entrada, tree.raiz);
-    tree.raiz.visitInOrdem();
+
+    return tree;
     
 }
 

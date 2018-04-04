@@ -46,6 +46,12 @@ describe('Analisador Léxico e Sintático', () => {
     expect(result.status).to.equal("erro");
   });
 
+  it('Deve retornar erro quando sentença = "x + ( y - x -  y )"', () => {
+    const sentenca = "x + ( y - x -  y )"
+    const result = analisador.verificaSentenca(sentenca)
+    expect(result.status).to.equal("erro");
+  });
+
   it('Deve retornar sucesso quando sentença = "x + ( y - x - y )"', () => {
     const sentenca = "x + ( y - x - y )"
     const result = analisador.verificaSentenca(sentenca)
@@ -69,4 +75,11 @@ describe('Analisador Léxico e Sintático', () => {
     const result = analisador.verificaSentenca(sentenca)
     expect(result.status).to.equal("ok");
   });
+
+  it('Deve retornar sucesso quando sentença = "0"', () => {
+    const sentenca = "0"
+    const result = analisador.verificaSentenca(sentenca)
+    expect(result.status).to.be.equal("ok");
+  });
+
 });

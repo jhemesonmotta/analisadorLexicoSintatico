@@ -46,8 +46,7 @@ function eh_incognita(token) {
 }
 
 function eh_numero(token) {
-  token = Number(token)
-  return token;
+  return !isNaN(token) && token !== ""
 }
 
 function eh_abre_parentese(token) {

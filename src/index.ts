@@ -60,7 +60,8 @@ function getChildrenAsJSON(entrada: string) {
 
     try {
       var tree = fillTree(tabela_tokens);
-      return tree.raiz.getJSON()
+
+      return tree.raiz.getJSON() || { text: { name: 'E' }, children: [] }
     } catch (err) {
       return { status: "erro" }
     }

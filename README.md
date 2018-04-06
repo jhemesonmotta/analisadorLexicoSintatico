@@ -1,5 +1,5 @@
 # Analisador Léxico e Sintático
-**Veja [funcionando aqui!](https://alexandrekavalerski.github.io/analisadorLexicoSintatico-exemplo/)**
+**Veja [um exemplo de uso aqui!](https://alexandrekavalerski.github.io/analisador-lexico-sintatico-page/)**
 
 Implementação de um analisador léxico e sintático para a gramática de expressões aritméticas.
 A lib realiza as análises léxica e sintática e provê uma indicação de que a sentença de entrada está correta ou incorreta (léxica ou sintaticamente).

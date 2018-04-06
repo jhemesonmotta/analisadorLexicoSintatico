@@ -83,3 +83,24 @@ describe('Analisador Léxico e Sintático', () => {
   });
 
 });
+
+describe('JSON Tree', () => {
+  it('Deve retornar array quando chamar funcao getChildrenAsJSON(x)', () => {
+    const sentenca = "x"
+    const result = analisador.getChildrenAsJSON(sentenca)
+    // expect(result).to.be.an('array')
+  });
+
+  it('Deve retornar array preenchido corretamente quando chamar funcao getChildrenAsJSON("x")', () => {
+    const sentenca = "x"
+    const result = analisador.getChildrenAsJSON(sentenca)
+    expect(result).to.be.have.deep.property('text')
+    console.log(result);
+  });
+  it('Deve retornar array preenchido corretamente quando chamar funcao getChildrenAsJSON("( x )")', () => {
+    const sentenca = "x + 1"
+    const result = analisador.getChildrenAsJSON(sentenca)
+    expect(result.children.length).to.be.deep.equal(3)
+    console.log(result);
+  });
+});

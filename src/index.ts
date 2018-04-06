@@ -32,6 +32,7 @@ function analisador(entrada: string) {
   }
 }
 
+
 function lexicamente(tb_tokens: any[]) {
   for (const infoToken of tb_tokens) {
     if (infoToken.identificador === "-") {
@@ -49,4 +50,22 @@ function result(mensagem: string, status: number = 0) {
   }
 }
 
-export { analisador as verificaSentenca }
+function getChildrenAsJSON(entrada: string) {
+  var tabela_tokens: Array<any> = analisadorLexico(entrada)
+  if (tabela_tokens) {
+    let resultLexico = lexicamente(tabela_tokens)
+    if (resultLexico.status === "erro") {
+      return result(resultLexico.msg);
+    }
+
+    try {
+      var tree = fillTree(tabela_tokens);
+
+      return tree.raiz.getJSON() || { text: { name: 'E' }, children: [] }
+    } catch (err) {
+      return { status: "erro" }
+    }
+  }
+}
+
+export { analisador as verificaSentenca, getChildrenAsJSON }

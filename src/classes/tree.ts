@@ -34,18 +34,16 @@ class Node {
 
   getJSON() {
     let filhoAtual = { text: { name: this.info.valor }, children: [] }
-    console.log(this.info.valor);
 
-    if (this.esquerdo !== null) {
-      filhoAtual.children.unshift(this.centro.getJSON())
+    if (this.direito !== null) {
+      filhoAtual.children.unshift(this.direito.getJSON())
     }
     if (this.centro !== null) {
       filhoAtual.children.unshift(this.centro.getJSON())
     }
-    if (this.direito !== null) {
-      filhoAtual.children.unshift(this.centro.getJSON())
+    if (this.esquerdo !== null) {
+      filhoAtual.children.unshift(this.esquerdo.getJSON())
     }
-
     return filhoAtual
   }
 

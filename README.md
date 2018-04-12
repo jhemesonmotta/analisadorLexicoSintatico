@@ -76,7 +76,7 @@ console.log(result)
 |:---------------------:|
 |  [Jhemeson Mota](https://github.com/jhemesonmotta)
 
-| ![Ian Maiwald]()|
+| ![Ian Maiwald](https://avatars3.githubusercontent.com/u/25598652?s=150&v=3)|
 |:---------------------:|
 |  [Ian Maiwald](https://github.com/IanMaiwald)
 
@@ -84,7 +84,7 @@ console.log(result)
 |:---------------------:|
 |  [Kennedy Santos](https://github.com/Qnedy)
 
-Veja também a lista de [colaboradores](https://github.com/jhemesonmotta/analisadorLexicoSintatico/contributors) who participated in this project.
+Veja também a lista de [colaboradores](https://github.com/jhemesonmotta/analisadorLexicoSintatico/contributors) que participaram deste projeto.
 
 
 ## Obs:

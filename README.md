@@ -84,8 +84,6 @@ console.log(result)
 |:---------------------:|
 |  [Kennedy Santos](https://github.com/Qnedy)
 
-Veja também a lista de [colaboradores](https://github.com/jhemesonmotta/analisadorLexicoSintatico/contributors) que participaram deste projeto.
-
 
 ## Obs:
 
